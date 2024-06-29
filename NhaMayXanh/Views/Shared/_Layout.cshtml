@@ -1,0 +1,160 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Nhà Máy Xanh - Web Bán Đồ Điện Tử Chính Hãng </title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/images/icon.png">
+
+    <!-- CSS
+    ============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="~/assets/css/vendor/font.awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/assets/css/vendor/ionicons.min.css">
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="~/assets/css/plugins/slick.min.css">
+    <!-- Animation -->
+    <link rel="stylesheet" href="~/assets/css/plugins/animate.min.css">
+    <!-- jQuery Ui -->
+    <link rel="stylesheet" href="~/assets/css/plugins/jquery-ui.min.css">
+    <!-- Nice Select -->
+    <link rel="stylesheet" href="~/assets/css/plugins/nice-select.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="~/assets/css/plugins/magnific-popup.css">
+
+    <!-- Vendor & Plugins CSS (Please remove the comment from below vendor.min.css & plugins.min.css for better website load performance and remove css files from the above) -->
+    <!-- <link rel="stylesheet" href="~/assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/plugins.min.css"> -->
+    <!-- Main Style CSS (Please use minify version for better website load performance) -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="~/assets/css/style.min.css"> -->
+</head>
+
+<body>
+
+    <div class="home-wrapper home-2">
+        <!-- Header Area Start Here -->
+        @await Html.PartialAsync("_Headerpartial.cshtml")
+        <!-- Header Area End Here -->
+
+       @RenderBody()
+
+        <!-- Footer Area Start Here -->
+        @await Html.PartialAsync("_Footerpartial.cshtml")
+       
+        <!-- Footer Area End Here -->
+    </div>
+
+    <!-- Modal Area Start Here -->
+    <div class="modal fade obrien-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="close close-button" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="close-icon" aria-hidden="true">x</span>
+                </button>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 text-center">
+                                <div class="product-image">
+                                    <img src="~/assets/images/product/9.jpg" alt="Ảnh Sản Phẩm">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="modal-product">
+                                    <div class="product-content">
+                                        <div class="product-title">
+                                            <h4 class="title">Xem Nhanh Sản Phẩm</h4>
+                                        </div>
+                                        <div class="price-box">
+                                            <span class="regular-price ">Chưa Có Hàng</span>
+                                            <span class="old-price"><del>Chưa Có Hàng</del></span>
+                                        </div>
+                                        <div class="product-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>3 Đánh Giá</span>
+                                        </div>
+                                        <p class="desc-content">Đây là Khu Vực Xem Nhanh Để Xem Chi Tiết Sản Phẩm Hãy Ấn Thẳng Vào Sản Phẩm Bạn Muốn Xem Để Biết Rõ Hơn Thông Tin Chi Tiết</p>
+                                        <form class="d-flex flex-column w-100" action="#">
+                                            <div class="form-group">
+                                                <select class="form-control nice-select w-100">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                        <div class="quantity-with_btn">
+                                            <div class="quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" value="0" type="text">
+                                                    <div class="dec qtybutton">-</div>
+                                                    <div class="inc qtybutton">+</div>
+                                                </div>
+                                            </div>
+                                            <div class="add-to_cart">
+                                                <a class="btn obrien-button primary-btn" href="cart.html">Thêm Vào Giỏ Hàng</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Area End Here -->
+    <!-- Scroll to Top Start -->
+    <a class="scroll-to-top" href="#">
+        <i class="ion-chevron-up"></i>
+    </a>
+    <!-- Scroll to Top End -->
+    <!-- JS
+    ============================================ -->
+    <!-- jQuery JS -->
+    <script src="~/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <!-- jQuery Migrate JS -->
+    <script src="~/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <!-- Modernizer JS -->
+    <script src="~/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="~/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Slick Slider JS -->
+    <script src="~/assets/js/plugins/slick.min.js"></script>
+    <!-- Countdown JS -->
+    <script src="~/assets/js/plugins/jquery.countdown.min.js"></script>
+    <!-- Ajax JS -->
+    <script src="~/assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Nice Select JS -->
+    <script src="~/assets/js/plugins/jquery.nice-select.min.js"></script>
+    <!-- Jquery Ui JS -->
+    <script src="~/assets/js/plugins/jquery-ui.min.js"></script>
+    <!-- jquery magnific popup js -->
+    <script src="~/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/assets/js/main.js"></script>
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required:false)
+   
+</body>
+
+
+</html>

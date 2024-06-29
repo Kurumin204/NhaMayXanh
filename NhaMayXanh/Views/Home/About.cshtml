@@ -1,0 +1,151 @@
+﻿@{
+    ViewData["Title"] = "Về Chúng Tôi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumbs-area position-relative mb-text-p">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="breadcrumb-content position-relative section-content">
+                    <h3 class="title-3">Về Chúng Tôi</h3>
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                        <li>Về chúng tôi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="feature-area mb-no-text">
+    <div class="container container-default custom-area">
+        <div class="row">
+            <div class="col-xl-6 col-lg-5 col-md-12 col-custom">
+                <div class="feature-content-wrapper">
+                    <h2 class="title">NHÀ MÁY XANH - BÁN ĐỒ ĐIỆN TỬ CHÍNH HÃNG</h2>
+                    <p class="desc-content">Bạn đang tìm kiếm một địa chỉ mua sắm uy tín, đa dạng và chất lượng?  Nhà máy xanh - Nơi bạn tìm thấy mọi điều cần thiết cho tổ ấm của mình!</p>
+                    <p class="desc-content">Nhà máy xanh - Nơi niềm vui mua sắm được nhân đôi, hạnh phúc gia đình được vun trồng!.   Hãy đến với Điện máy xanh ngay hôm nay để trải nghiệm! Nếu muốn giới thiệu về ưu đãi: "Ưu đãi khủng, giá sốc, chỉ có tại Nhà máy xanh!"</p>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-7 col-md-12 col-custom">
+                <div class="feature-image position-relative">
+                    <img src="~/assets/images/feature/feature-2.jpg" alt="Nhà máy xanh">
+                    <div class="popup-video position-absolute">
+                        <a class="popup-vimeo" href="https://www.youtube.com/watch?v=OtT0vunQSlM">
+                            <i class="ion-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="newsletter-area mt-no-text mb-text-p">
+    <div class="container container-default h-100 custom-area">
+        <div class="row h-100">
+            <div class="col-lg-8 col-xl-5 offset-xl-6 offset-lg-3 col-custom">
+                <div class="newsletter-content text-center d-flex flex-column align-items-center justify-content-center h-100">
+                    <div class="section-content">
+                        <h4 class="title-4 text-uppercase">ƯU ĐÃI <span>ĐẶC BIỆT</span> CHO ĐĂNG KÝ</h4>
+                        <h2 class="title-3 text-uppercase">NHẬN CHIẾT KHẤU NGAY LẬP TỨC CHO TƯ CÁCH THÀNH VIÊN</h2>
+                        <p class="desc-content">
+                            Theo dõi bản tin của chúng tôi và tất cả các tin tức mới nhất của chúng tôi
+                            <br> Sản phẩm, khuyến mãi và ưu đãi mới nhất
+                        </p>
+                    </div>
+                    <div class="newsletter-form-wrap ml-auto mr-auto">
+                        <form id="mc-form" class="mc-form d-flex position-relative">
+                            <input type="email" id="mc-email" class="form-control email-box" placeholder="email@example.com" name="EMAIL">
+                            <button id="mc-submit" class="btn primary-btn obrien-button newsletter-btn position-absolute" type="submit">Đăng Kí</button>
+                        </form>
+                        <div class="mailchimp-alerts text-centre">
+                            <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                            <div class="mailchimp-success text-success"></div><!-- mailchimp-success end -->
+                            <div class="mailchimp-error text-danger"></div><!-- mailchimp-error end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="brand-logo-area mt-text mb-no-text">
+    <div class="container custom-area">
+        <div class="row">
+            <div class="col-lg-12 col-custom">
+                <div class="obrien-slider" data-slick-options='{
+                        "slidesToShow": 5,
+                        "slidesToScroll": 1,
+                        "infinite": true,
+                        "arrows": false,
+                        "dots": false
+                        }' data-slick-responsive='[
+                        {"breakpoint": 1200, "settings": {
+                        "slidesToShow": 4
+                        }},
+                        {"breakpoint": 992, "settings": {
+                        "slidesToShow": 3
+                        }},
+                        {"breakpoint": 576, "settings": {
+                        "slidesToShow": 3
+                        }},
+                        {"breakpoint": 481, "settings": {
+                        "slidesToShow": 2
+                        }}
+                        ]'>
+                    <div class="brand-logo-item">
+                        <a href="#">
+                            <img src="~/assets/images/brand-logo/brand-1.png" alt="Brand Logo">
+                        </a>
+                    </div>
+                    <div class="brand-logo-item">
+                        <a href="#">
+                            <img src="~/assets/images/brand-logo/brand-2.jpg" alt="Brand Logo">
+                        </a>
+                    </div>
+                    <div class="brand-logo-item">
+                        <a href="#">
+                            <img src="~/assets/images/brand-logo/brand-3.jpg" alt="Brand Logo">
+                        </a>
+                    </div>
+                    <div class="brand-logo-item">
+                        <a href="#">
+                            <br />
+                            <br />
+                            <img src="~/assets/images/brand-logo/brand-4.jpg" alt="Brand Logo">
+                        </a>
+                    </div>
+                    <div class="brand-logo-item">
+                        <a href="#">
+                            <br />
+                            <br />
+                            <img src="~/assets/images/brand-logo/brand-5.png" alt="Brand Logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="support-area">
+    <div class="container container-default custom-area">
+        <div class="row">
+            <div class="col-lg-12 col-custom">
+                <div class="support-wrapper d-flex">
+                    <div class="support-content">
+                        <h1 class="title">Cần trợ giúp ?</h1>
+                        <p class="desc-content">Số điện thoại hỗ trợ 24/7 01234-567-890</p>
+                    </div>
+                    <div class="support-button d-flex align-items-center">
+                        <a class="obrien-button primary-btn" asp-controller="Home" asp-action="Contact">Liên hệ với chúng tôi ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

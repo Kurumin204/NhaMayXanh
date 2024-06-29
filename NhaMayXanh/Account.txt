@@ -1,0 +1,16 @@
+﻿--Vnpay Account Test
+9704198526191432198
+NGUYEN VAN A
+
+
+--Paypal Account Test
+sb-xa8uy30757026@personal.example.com
+q?;95O!Y
+
+--Admin Account
+tenkono69@gmail.com
+28092002
+
+--User Account
+ab12.12.21122@gmail.com
+123456

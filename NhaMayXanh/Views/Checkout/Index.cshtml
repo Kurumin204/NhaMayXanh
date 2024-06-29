@@ -1,0 +1,241 @@
+﻿@model WebFigure.ModelsView.MuaHangVM
+@{
+    ViewData["Title"] = "Mua hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<WebFigure.ModelsView.CartItem> Carts = ViewBag.GioHang;
+}
+
+
+<!-- Breadcrumb Area Start Here -->
+<div class="breadcrumbs-area position-relative">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="breadcrumb-content position-relative section-content">
+                    <h3 class="title-3">Thông tin mua hàng</h3>
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                        <li>Thông tin mua hàng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Area End Here -->
+<!-- Checkout Area Start Here -->
+<div class="checkout-area">
+    <div class="container container-default-2 custom-container">
+
+        <div class="row">
+            <form asp-controller="Checkout" asp-action="Index" method="post">
+                <input hidden asp-for="CustomerId" />
+                <div class="col-lg-6 col-12">
+                    <div class="checkbox-form">
+                        <h3>Thông tin giao hàng</h3>
+                        <form asp-action="SuccessView" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>Họ và tên <span class="required">*</span></label>
+                                        <input asp-for="FullName" placeholder="Họ và Tên" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>Số điện thoại <span class="required">*</span></label>
+                                        <input asp-for="Phone" placeholder="Số điện thoại" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checkout-form-list">
+                                        <label>Địa chỉ nhận hàng <span class="required">*</span></label>
+                                        <input asp-for="Address" placeholder="Địa chỉ nhận hàng" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="your-order">
+                        <h3>Đơn hàng của bạn</h3>
+                        <div class="your-order-table table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="cart-product-name">Sản phẩm</th>
+                                        <th class="cart-product-total">Thành tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Carts.Count() > 0)
+                                    {
+                                        foreach (var item in Carts)
+                                        {
+                                            <tr class="cart_item">
+                                                <td class="cart-product-name">
+                                                    @item.product.ProductName<strong class="product-quantity">
+                                                        ×  @item.amount
+                                                    </strong>
+                                                </td>
+                                                <td class="cart-product-total text-center"><span class="amount">@item.TotalMoney.ToString("#,##0") VNĐ</span></td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr class="order-total">
+                                        <th>TỔNG ĐƠN HÀNG</th>
+                                        <td class="text-center"><strong><span class="amount">@Carts.Sum(x => x.TotalMoney).ToString("#,##0") VNĐ</span></strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="payment-method">
+                            <div class="payment-accordion">
+                                <div id="accordion">
+                                    <div class="card">
+                                        <div class="card-header" id="#payment-1">
+                                            <h5 class="panel-title mb-2">
+                                                <a href="#" class="" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Thanh toán khi giao hàng (COD).
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                            <div class="card-body mb-2 mt-2">
+                                                <p>Ngân hàng: BIDV</p>
+                                                <p>Tên tài khoản: Vũ Hồng Phúc</p>
+                                                <p>Số tài khoản: 12010007285574</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="#payment-2">
+                                            <h5 class="panel-title mb-2">
+                                                <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Thanh toán bằng paypal
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                            <div class="card-body mb-2 mt-2">
+                                                <div id="paypal-button-container" class="form-item mt-3" style="max-width:1000px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="#payment-3">
+                                            <h5 class="panel-title mb-2">
+                                                <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Thanh toán bằng stripe
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                            <div class="card-body mb-2 mt-2">
+                                                <a asp-action="Index" asp-controller="Checkout" value="Checkout">checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="#payment-3">
+                                            <h5 class="panel-title mb-2">
+                                                <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Thanh toán bằng zalopay
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                            <div class="card-body mb-2 mt-2">
+                                                <p>Ngân hàng: BIDV</p>
+                                                <p>Tên tài khoản: Vũ Hồng Phúc</p>
+                                                <p>Số tài khoản: 12010007285574</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="#payment-3">
+                                            <h5 class="panel-title mb-2">
+                                                <a href="/checkout/PaymentWithVnPay" class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Thanh Toán Bằng VnPay
+                                                </a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                        <div class="card-body mb-2 mt-2">
+                                            <a href="/Checkout/PaymentWithVnPay">Thanh Toán bằng VnPay</a>
+                                        </div>
+                                    </div>
+                                    <div class="order-button-payment">
+                                        <input value="Xác nhận đặt hàng" type="submit">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Checkout Area End Here -->
+<!-- Support Area Start Here -->
+<div class="support-area">
+    <div class="container container-default custom-area">
+        <div class="row">
+            <div class="col-lg-12 col-custom">
+                <div class="support-wrapper d-flex">
+                    <div class="support-content">
+                        <h1 class="title">Cần Trợ Giúp ?</h1>
+                        <p class="desc-content">Gọi Trợ Giúp 24/7 at 01234-567-890</p>
+                    </div>
+                    <div class="support-button d-flex align-items-center">
+                        <a class="obrien-button primary-btn" href="contact-us.html">Gọi Ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   @section Scripts {
+    <script src="https://www.paypal.com/sdk/js?client-id=ATZlyNCoWzBQFL-ueX-vjxFd0mgQBoUPq42DnZqFsimx2PmNOKzZO-r2TT8g2FE3z6TYD9WfMA9UQxk5"></script>
+    <script>
+        paypal.Buttons({
+            style: {
+                layout: 'vertical',
+                color: 'silver',
+                tagline: 'false'
+            },
+            createOrder: (data, actions) => {
+                return fetch("/Checkout/create-paypal-order", {
+                    method: "post",
+                }).then((response) => {
+                    debugger;
+                    console.log(response);
+                    if (!response.ok) {
+                        return response.json().then(error => { throw error; });
+                    }
+                    return response.json();
+                }).then((order) => order.id)
+                    .catch(error => alert(error.message));
+            },
+            onApprove: (data, actions) => {
+                return fetch(`/Checkout/capture-paypal-order?orderID=${data.orderID}`, {
+                    method: "post",
+                }).then((response) => {
+                    debugger;
+                    console.log(response);
+                    if (!response.ok) {
+                        return response.json().then(error => { throw error; });
+                    }
+                    window.location.href = `/dat-hang-thanh-cong.html`;
+                }).catch(error => alert(error.message));
+            }
+        }).render('#paypal-button-container');
+    </script>
+}
+
+<!-- Support Area End Here -->
